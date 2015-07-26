@@ -6,7 +6,7 @@ require([
 
     var app = {
         init: function () {
-
+            var a = 'http://baidu.com';
         }
     };
 
