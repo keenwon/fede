@@ -17,7 +17,7 @@ gulp.task('clean', function (cb) {
     del(['dist'], cb);
 });
 
-gulp.task('jslint', function () {
+gulp.task('jshint', function () {
     return gulp.src('dev/js/**/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter(stylish));
@@ -58,7 +58,7 @@ gulp.task('js:index', ['clean'], function () {
 });
 
 gulp.task('default', ['build']);
-gulp.task('build', ['jslint', 'css', 'js', 'img', 'html']);
+gulp.task('build', ['jshint', 'css', 'js', 'img', 'html']);
 gulp.task('server', shell.task([
     'node bin/app'
 ]));
