@@ -6,7 +6,12 @@ require([
 
     var app = {
         init: function () {
-            var a = 'http://baidu.com';
+            $.ajax({
+                url: 'http://github.com',
+                success: function(){
+
+                }
+            });
         }
     };
 
