@@ -1,6 +1,6 @@
 {
   "name": "fede",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "前端开发环境",
   "moduleType": [
     "amd"
@@ -11,8 +11,6 @@
   "license": "MIT",
   "homepage": "http://github.com/keenwon/fede",
   "dependencies": {
-    "jquery": "1.9.1",
-    "requirejs": "~2.1.19",
-    "almond": "~0.3.1"
+    "jquery": "1.9.1"
   }
 }
