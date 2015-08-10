@@ -1,5 +1,4 @@
 # fede
-> fede不是在造轮子，而是组装一辆车
 
 一个的前端开发环境，实现前后端分离开发。
 
@@ -74,10 +73,6 @@ module.exports = {
 ```
 启动服务，在浏览器中打开js文件，我们不会看到`http://github.com`，只会看到`/json`。
 当然还有种方法是，在hbs中定义url的变量，因为有时url是根据后端的输出来变换的。
-
-##Changelog
-####1.0
-AMD版本
 
 ##License
 MIT
