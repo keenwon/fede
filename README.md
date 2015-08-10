@@ -16,9 +16,15 @@
 另外：代码很简单，大部分是第三方组件，可以根据自己的需要修改
 
 ##Installation
+方法1：直接clone本项目，然后执行
 
     npm install
     bower install
+
+方法2：使用yo快速构建
+
+    npm install -g generator-fede yo
+    yo fede
 
 ##Usage
 所有开发文件在`dev`目录下，执行编译后的待发布文件在`dist`目录下
