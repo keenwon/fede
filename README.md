@@ -3,7 +3,7 @@
 一个的前端开发环境，实现前后端分离开发。
 
 主要功能：
-- 模拟后端接口，在尽可能真实的环境下数据
+- 模拟后端接口，在尽可能真实的环境下开发
 - 定义`_map.js`文件，自动拦截javascript中的“线上接口地址”到“本地模拟的接口”，无需修改javascript文件
 - 使用handlebars模板代替html文件，可根据不同的环境编译成不同版本的html文件
 
@@ -13,7 +13,9 @@
 - 使用bower进行第三方组件的管理
 - 使用amd模块，开发环境直接引入require.js，生产环境将代码和almond打包在一起
 
-另外：代码很简单，大部分是第三方组件，可以根据自己的需要修改
+另外：
+- 代码很简单，大部分是第三方组件，可以根据自己的需要修改
+- 基于commonjs和webpack，请查看[fede2](https://github.com/keenwon/fede2)
 
 ##Installation
 方法1：直接clone本项目，然后执行
@@ -37,7 +39,7 @@
 
     gulp build
 
-还可以单独运行各个任务，任务都定义在`gulpfile.js`文件下，很好修改。
+还可以单独运行各个任务，任务都定义在`gulpfile.js`文件下。
 
 ##Documents
 ### 编译hbs文件
@@ -56,7 +58,7 @@
 在本地运行的时候，会应用index.css文件，编译后的html文件只显示index.min.css
 
 ### Mock
-在Mock文件夹下js文件（除了`_map.js`）都会被认为是mock文件，其实就是express中定义的路由接口，具体可以参考[express的文档](expressjs.com/zh/4x/api.html)
+在Mock文件夹下js文件（除了`_map.js`）都会被认为是mock文件，其实就是express中定义的路由接口，具体可以参考[express的文档](http://expressjs.com/zh/4x/api.html)
 
 ### 拦截ajax请求
 mock已经很好用了，但是还不够好用。因为我们必须把`http://localhost:3000/xxxx`这样的接口写在js里，发布前还要替换（当然你可以使用gulp-replace等）。
