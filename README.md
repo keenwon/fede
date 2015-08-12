@@ -1,6 +1,6 @@
 # fede
 
-一个的前端开发环境，实现前后端分离开发。
+一个前端开发环境，实现前后端分离开发。
 
 主要功能：
 - 模拟后端接口，在尽可能真实的环境下开发
@@ -8,14 +8,14 @@
 - 使用handlebars模板代替html文件，可根据不同的环境编译成不同版本的html文件
 
 依赖于：
-- 基于expresss实现，可以使用任何express的中间件
+- 基于express.js实现，可以使用任何express的中间件
 - 使用gulp执行自动化构建
 - 使用bower进行第三方组件的管理
 - 使用amd模块，开发环境直接引入require.js，生产环境将代码和almond打包在一起
 
 另外：
 - 代码很简单，大部分是第三方组件，可以根据自己的需要修改
-- 基于commonjs和webpack，请查看[fede2](https://github.com/keenwon/fede2)
+- 基于commonjs和webpack的版本，请查看[fede2](https://github.com/keenwon/fede2)
 
 ##Installation
 方法1：直接clone本项目，然后执行
@@ -43,7 +43,7 @@
 
 ##Documents
 ### 编译hbs文件
-`.hbs`的文件也就是handlebars模板，你可以`bin/helpers`中写自定义的helper，然后就可以在hbs文件中使用了，默认设置了`development`和`development`两个helper，在本地运行的时候，默认是`development`环境，gulp编译时，是`production`环境
+`.hbs`的文件也就是handlebars模板，你可以在`bin/helpers`中写自定义的helper，然后就可以直接在hbs文件中使用了，默认设置了`development`和`development`两个helper，在本地运行的时候，默认是`development`环境，gulp编译时，是`production`环境
 
 ```handlebars
 <head>
@@ -62,11 +62,11 @@
 
 ### 拦截ajax请求
 mock已经很好用了，但是还不够好用。因为我们必须把`http://localhost:3000/xxxx`这样的接口写在js里，发布前还要替换（当然你可以使用gulp-replace等）。
-我理想的方式是拦截url，重定位到本地接口（类似fiddler&charles），更妙的是我们使用的express，可以自定义静态文件中间件，通过一个map文件替换js里的url，然后在响应给浏览器，而实际上js文件是没有变的。
+我理想的方式是拦截url，重定位到本地接口（类似fiddler&charles），更妙的是我们使用的express，可以自定义静态文件中间件，通过一个map文件替换js里的url，然后直接响应给浏览器，而实际上js文件是没有变的。
 例如我们的本地文件有这样一个请求：
 ```javascript
   $.ajax({
-    url: 'http://github.com',
+    url: 'https://github.com',
     success: function(){
 
     }
@@ -76,11 +76,11 @@ mock已经很好用了，但是还不够好用。因为我们必须把`http://lo
 ```javascript
 module.exports = {
     // url映射举例
-    'http://github.com': '/json'
+    'https://github.com': '/json'
 };
 ```
 启动服务，在浏览器中打开js文件，我们不会看到`http://github.com`，只会看到`/json`。
-当然还有种方法是，在hbs中定义url的变量，因为有时url是根据后端的输出来变换的。
+当然还有种方法是，在hbs中定义url的变量，因为有时url是根据后端的输出来拼接的。
 
 ##License
 MIT
