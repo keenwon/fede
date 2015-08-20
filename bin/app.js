@@ -17,11 +17,9 @@ var devDir = path.join(__dirname, '../dev'),
 
 // views
 var helpers = require('./helpers')(argv.v || 'development');
-for (var item in helpers) {
-    if (helpers.hasOwnProperty(item)) {
-        hbs.registerHelper(item, helpers[item]);
-    }
-}
+Object.keys(helpers).forEach(function (key) {
+    hbs.registerHelper(key, helpers[key]);
+});
 app.set('views', devDir);
 app.set('view engine', 'hbs');
 

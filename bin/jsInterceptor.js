@@ -27,12 +27,10 @@ function intercept(mockDir, staticDir) {
             var fileContent = fs.readFileSync(filePath).toString(),
                 reg;
 
-            for (var rule in mapRules) {
-                if (mapRules.hasOwnProperty(rule)) {
-                    reg = new RegExp(rule, 'gm');
-                    fileContent = fileContent.replace(reg, mapRules[rule]);
-                }
-            }
+            Object.keys(mapRules).forEach(function (rule) {
+                reg = new RegExp(rule, 'gm');
+                fileContent = fileContent.replace(reg, mapRules[rule]);
+            });
 
             res.set('Content-Type', 'text/javascript; charset=UTF-8');
             res.end(fileContent);
