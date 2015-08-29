@@ -1,7 +1,8 @@
 'use strict';
 
 var fs = require('fs'),
-    path = require('path');
+    path = require('path'),
+    util = require('util');
 
 module.exports = mock;
 
@@ -13,9 +14,13 @@ function mock(app, dir) {
         filePath = path.join(dir, item);
 
         if (fs.statSync(filePath).isDirectory()) {
-            mock(filePath);
+            mock(app, filePath);
         } else if (item !== '_map.js') {
-            require(filePath)(app);
+            try {
+                require(filePath)(app);
+            } catch (e) {
+                console.log(util.format('注意：文件"%s"不是变准的mock文件，已跳过', filePath));
+            }
         }
     });
 }
